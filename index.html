@@ -18,7 +18,7 @@
     }
 
     .row {
-      margin: 12px 0;
+      margin: 0px 0; /* Reduced margin to make the space shorter */
     }
 
     img {
@@ -28,12 +28,15 @@
 
     h1 {
       font-size: 2rem;
-      color: #333;
+      color: #ff81b6;
     }
 
     .buttons {
       display: flex;
       gap: 16px;
+      justify-content: center; /* Center the buttons */
+      align-items: center; /* Align buttons vertically */
+      flex-wrap: wrap; /* Allow buttons to wrap if needed */
     }
 
     button {
@@ -48,7 +51,6 @@
     #yesBtn {
       background-color: #4caf50;
       color: white;
-      transform: scale(1);
     }
 
     #noBtn {
@@ -61,12 +63,12 @@
   <!-- Top row: GIF -->
   <div class="row">
     <!-- Replace gif.gif with your own GIF file -->
-    <img src="gif.gif" alt="Cute gif" />
+    <img src="cat flower.gif" alt="Cute gif" />
   </div>
 
   <!-- Second row: text -->
   <div class="row">
-    <h1>Will you be my Valentine?</h1>
+    <h1>Will you be my Valentine?🩷</h1>
   </div>
 
   <!-- Third row: buttons -->
@@ -84,22 +86,35 @@
 
     const noPhrases = [
       "No",
+      "No 💔",
+      "Please? 🥺",
       "Are you sure?",
-      "Really sure?",
-      "Think again 🥺",
-      "Last chance!",
-      "This is getting awkward…",
-      "Okay but why though?",
-      "Please? 💔"
+      "Really sure? 😔",
+      "안 돼요… 🥺",
+      "But we'd be so cute together! 💕",
+      "제발요… 💔",
+      "One more chance?",
+      "한 번만 더 생각해줘요 😢",
+      "What about a maybe?",
+      "마음이 아파요… 💔",
+      "Please don't do this to me, I'm fragileㅠ",
+      "이러면 울어요 😭",
+      "고양이도 울어요… 😿",
     ];
 
     yesBtn.addEventListener("click", () => {
-      document.body.innerHTML = "<h1>Thanks ❤️</h1>";
+      document.body.innerHTML = `
+        <div class="row">
+          <img src="cat hearts.gif" alt="Cat hearts gif" />
+        </div>
+        <h1>YAY!! Thanks 🥰</h1>
+      `;
     });
 
     noBtn.addEventListener("click", () => {
-      yesScale += 0.15; // make yes button bigger
-      yesBtn.style.transform = `scale(${yesScale})`;
+      yesScale += 0.15;
+      yesBtn.style.fontSize = `${1.2 + yesScale}rem`;
+      yesBtn.style.padding = `${12 + yesScale * 6}px ${24 + yesScale * 10}px`;
 
       noClickCount++;
       const phraseIndex = Math.min(noClickCount, noPhrases.length - 1);
